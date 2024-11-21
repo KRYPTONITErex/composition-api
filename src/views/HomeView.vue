@@ -1,63 +1,37 @@
 <template>
+
   <div class="home">
-    
-    <h1>Person One</h1>
-    <p>{{ personOne.name }} {{ personOne.age }}</p>
-    <p>{{ personOne }}</p>
 
-    <button @click="changeOne">Click</button>
+    <PostsList :posts="posts"></PostsList>
 
-    <h1>Person Two</h1>
-    <p>{{ personTwo.name }} {{ personTwo.age }}</p>
-    <p>{{ personTwo }}</p>
-
-    <button @click="changeTwo"> Change Two </button> <br><br>
-
-    <h3>user one = {{ user1 }} & user two = {{ user2 }}</h3>
-
-    <button @click="change1">ChangeOne</button> - 
-    <button @click="change2">ChangeTwo</button>
 
   </div>
+
 </template>
 
 <script>
-import { reactive, ref } from 'vue';
+import PostsList from '../components/PostsList'
+import { ref } from 'vue';
 
 
+  export default {
+  components: { PostsList },
 
-export default {
+    setup(){
 
-  setup(){
+      let posts = ref ([
+        {title:"post title 1", body:"Vue.js is a progressive JavaScript framework widely used for building interactive and user-friendly web applications. It simplifies the development process with its two-way data binding, component-based architecture, and seamless integration with other libraries or existing projects. Developers appreciate its lightweight nature and flexibility, allowing them to focus on building features rather than dealing with complex configurations. With Vue’s intuitive syntax and extensive documentation, even beginners can quickly grasp its concepts and start creating dynamic applications. Whether developing single-page apps or integrating with backend frameworks, Vue.js provides a versatile and efficient solution for modern web development.", id:1},
+        {title:"post title 2", body:"lorem ipsum2", id:2}
 
-    let personOne = ref({name:"kyaw",age:30});
-
-    let changeOne=()=>{
-      personOne.value.name = "Lwin";
-      // console.log(personOne.value.name)
-    }
+      ])
 
 
-    let personTwo = reactive({name:"Maung", age:33});
+      return { posts }
 
-    let changeTwo = ()=>{
-      personTwo.name="Changed Maung"
-    }
+      
 
-    let user1 = ref("Lwin Phyo")
-    let user2 = ref("Khaing Zar")
-
-    let change1 = ()=>{
-      user1.value="ChangeLwin"
-    }
-
-    let change2 = ()=>{
-      user2.value = "Change KZL"
-    }
-
-    return {personOne,changeOne,personTwo,changeTwo,user1,user2,change1,change2}
-
+      }
+  
   }
- 
-}
+
 </script>
