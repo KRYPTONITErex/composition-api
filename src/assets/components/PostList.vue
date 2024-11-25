@@ -1,6 +1,6 @@
 <template>
 
-    <h2>My Post List</h2>
+    <!-- <h2>My Post List</h2> -->
 
     <div v-for="mypost in myposts" :key="mypost.id">
         <SinglePost :mypost="mypost"></SinglePost>
