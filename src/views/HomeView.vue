@@ -1,14 +1,21 @@
 <template>
   <div class="home">
 
+    <div>{{ error }}</div>
+
+    <div v-if="myposts.length>0">
       <PostList :myposts="myposts"></PostList>
+    </div>
+    <div v-else>
+      loading ...
+    </div>
 
   </div>
 </template>
 
 <script>
 import PostList from '../assets/components/PostList'
-import { ref } from 'vue';
+import getPosts from '../composables/getPosts';
 
 
 
@@ -16,14 +23,20 @@ export default {
   components: { PostList },
 
   setup(){
+    //composable function
 
-    let myposts = ref ([
-      
-    
-    ]
-    )
+    let {myposts,error,load} = getPosts()
 
-    return {myposts}
+    load();
+    console.log(error.value)
+
+    return {myposts,error}
+
+    //destructuring
+    let {name, age}={
+      name: "Ko Lwin Phyo",
+      age: 29
+    }
 
   }
   
