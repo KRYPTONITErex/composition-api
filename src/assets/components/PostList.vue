@@ -19,7 +19,8 @@ export default {
     props: ["myposts"],
 
     setup(props){
-        console.log(props.myposts)
+     
+
     }
 
 }
