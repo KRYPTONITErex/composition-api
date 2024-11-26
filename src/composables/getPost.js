@@ -1,3 +1,4 @@
+
 const { ref } = require("vue");
 
 let getPost=(id)=>{
@@ -8,6 +9,10 @@ let getPost=(id)=>{
     let load = async ()=>{
 
         try{
+            await new Promise((resolve,reject)=>{
+                setTimeout(resolve,3000)
+            })
+            
             let response = await fetch ("http://localhost:3000/myposts/"+ id );
             if(response.status===404){
                 throw new Error ("NOT FOUND UR ONE ...")

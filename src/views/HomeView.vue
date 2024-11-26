@@ -7,20 +7,22 @@
       <PostList :myposts="myposts"></PostList>
     </div>
     <div v-else>
-      loading ...
+      <Spinner></Spinner>
     </div>
 
   </div>
 </template>
 
 <script>
+import Spinner from '../assets/components/Spinner'
 import PostList from '../assets/components/PostList'
 import getPosts from '../composables/getPosts';
 
 
 
 export default {
-  components: { PostList },
+  components: {
+    Spinner, PostList },
 
   setup(){
     //composable function

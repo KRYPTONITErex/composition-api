@@ -21,11 +21,14 @@ export default {
         return {cutBody}
     }
 
-   
-
 }
 </script>
 
 <style>
+
+h2{
+    text-decoration: none;
+    color: rgb(189, 36, 67);
+}
 
 </style>

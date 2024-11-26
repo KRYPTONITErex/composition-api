@@ -2,7 +2,7 @@
 
     <!-- <h2>My Post List</h2> -->
 
-    <div v-for="mypost in myposts" :key="mypost.id">
+    <div v-for="mypost in myposts" :key="mypost.id" class="psl">
         <SinglePost :mypost="mypost"></SinglePost>
     </div>
   
@@ -27,5 +27,9 @@ export default {
 </script>
 
 <style>
+
+.psl{
+    text-decoration: none;
+}
 
 </style>
