@@ -1,7 +1,8 @@
 <template>
+
     <h1>VUE .vue</h1>
   
-    <form>
+    <form @submit.prevent="addPost">
       <div class="form-group">
         <label>Title:</label>
         <input type="text" required v-model="title">
@@ -23,6 +24,7 @@
 
       <button>ADD POST</button>
     </form>
+
 </template>
   
 <script>
@@ -34,6 +36,7 @@ import { ref } from 'vue';
         let body = ref ("")
         let tag = ref ("")
         let tags = ref ([])
+        
 
         let handleKeydown = ()=>{
             // alert('handle keydown')
@@ -43,7 +46,25 @@ import { ref } from 'vue';
             tag.value=""
         }
 
-        return { title, body, tag, handleKeydown, tags }
+        let addPost = async()=>{
+           await fetch('http://localhost:3000/myposts',{
+            method:"POST",
+            headers:{
+                'Content-type':"application/json"
+            },
+            body:JSON.stringify(
+                {
+                    title:title.value,
+                    body:body.value,
+                    tags:tags.value
+                }
+            )
+           })
+
+           
+        }
+
+        return { title, body, tag, handleKeydown, tags, addPost }
     }
   };
 </script>

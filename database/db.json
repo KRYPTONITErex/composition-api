@@ -1,29 +1,37 @@
 {
-    "myposts":[
-        {
-            "title":"post title 1",
-            "id":1,
-            "body":"lorem ipsum"
-        },
-        {
-            "title":"post title 2",
-            "id":2,
-            "body":"lorem ipsum"
-        },
-        {
-            "title":"post title 3",
-            "id":3,
-            "body":"lorem ipsum"
-        },
-        {
-            "title":"post title 4",
-            "id":4,
-            "body":"lorem ipsum"
-        },
-        {
-            "title":"post title 5",
-            "id":5,
-            "body":"lorem ipsum"
-        }
-    ]
+  "myposts": [
+    {
+      "title": "post title 1",
+      "id": "1",
+      "body": "lorem ipsum"
+    },
+    {
+      "title": "post title 2",
+      "id": "2",
+      "body": "lorem ipsum"
+    },
+    {
+      "title": "post title 3",
+      "id": "3",
+      "body": "lorem ipsum"
+    },
+    {
+      "title": "post title 4",
+      "id": "4",
+      "body": "lorem ipsum"
+    },
+    {
+      "title": "post title 5",
+      "id": "5",
+      "body": "lorem ipsum"
+    },
+    {
+      "id": "aff3",
+      "title": "titless",
+      "body": "bodyss",
+      "tags": [
+        "html","css"
+      ]
+    }
+  ]
 }
