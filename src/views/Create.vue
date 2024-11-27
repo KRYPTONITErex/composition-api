@@ -29,9 +29,13 @@
   
 <script>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
   export default {
     setup(){
+        let router = useRouter();
+      
+
         let title = ref ("")
         let body = ref ("")
         let tag = ref ("")
@@ -61,6 +65,8 @@ import { ref } from 'vue';
             )
            })
 
+           //refirect user home page
+           router.push("/")
            
         }
 

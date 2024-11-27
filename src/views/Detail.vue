@@ -13,22 +13,30 @@
 <script>
 import Spinner from '../assets/components/Spinner'
 import getPost from '../composables/getPost';
+import { useRoute } from 'vue-router';
+
 export default {
   components: { Spinner },
     props: ["id"],
-    setup(props){
-        let {mypost,error,load} = getPost(props.id);
-        load();
-        return{mypost, error}
+    setup(){
+      let route = useRoute();
+      // console.log(route.params.id)
+      
+      let {mypost,error,load} = getPost(route.params.id);
+      load();
+      return{mypost, error}
     }
 
 }
 </script>
 
-<style>
+<style scoped>
 
 .lt{
   text-decoration: none;
+  color: black;
+  background-color: rgb(246, 242, 124);
+  border-radius: 5px;
 }
 
 .details{
@@ -44,25 +52,27 @@ export default {
 
 
 .post h2{
-    margin-top: 0px;
+  font-family: stencil;
+  margin-top: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     position: relative;
     font-size: 26px;
-    color: azure;
+    /* color: rgb(206, 255, 255); */
     margin: 30px;
     max-width: 200px;
+    border: solid 2px whitesmoke;
 }
 
 .post h2::before{
     margin-left: 30px;
     content: "";
     display: block;
-    width: 130%;
+    width: 115%;
     height: 120%;
-    background: #ff8800;
+    background: #fc4710;
     position: absolute;
     z-index: -1;
     padding-right: 30px;
@@ -75,15 +85,5 @@ export default {
     padding-left: 15px;
 }
 
-.pill{
-    display: inline-block;
-    align-items: flex;
-    margin: 5px 5px 10px 0;
-    color: #094143;
-    background: #dafdf9;
-    padding: 8px;
-    border-radius: 10px;
-    font-size: 14px;
-}
 
 </style>
