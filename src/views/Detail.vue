@@ -63,7 +63,7 @@ export default {
     /* color: rgb(206, 255, 255); */
     margin: 30px;
     max-width: 200px;
-    border: solid 2px whitesmoke;
+    border: solid 2px rgb(180, 174, 174);
 }
 
 .post h2::before{
@@ -72,7 +72,7 @@ export default {
     display: block;
     width: 115%;
     height: 120%;
-    background: #fc4710;
+    background: #dced2b;
     position: absolute;
     z-index: -1;
     padding-right: 30px;

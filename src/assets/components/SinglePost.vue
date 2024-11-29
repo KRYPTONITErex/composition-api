@@ -50,13 +50,13 @@ export default {
     content: "";
     display: block;
     width: 130%;
-    height: 120%;
-    background: #ff2f00;
+    height: 130%;
+    background: #fc3205;
     position: absolute;
     z-index: -1;
     padding-right: 30px;
     left: -50px;
-    transform: rotateZ(-5deg);
+    transform: rotateZ(-3deg);
     border-radius: 10px;
 }
 
