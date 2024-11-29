@@ -8,7 +8,7 @@
     <p>{{ cutBody }}</p>
 
     <div v-for="tag in mypost.tags" :key="tag" class="pill">
-        {{ tag }}
+        <router-link :to="{name:'Tag',params:{tag}}">{{ tag }}</router-link>
     </div>
 
 </div>
@@ -30,14 +30,17 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.post{
+    width: 500px;
+}
 
 .post h2{
     margin-top: 0px;
     display: inline-block;
     position: relative;
     font-size: 26px;
-    color: azure;
+    color: rgb(225, 255, 255);
     margin-bottom: 10px;
     max-width: 400px;
 }
@@ -48,7 +51,7 @@ export default {
     display: block;
     width: 130%;
     height: 120%;
-    background: #ff8800;
+    background: #ff2f00;
     position: absolute;
     z-index: -1;
     padding-right: 30px;
@@ -64,11 +67,11 @@ export default {
 .pill{
     display: inline-block;
     align-items: flex;
-    margin: 5px 5px 10px 0;
-    color: #094143;
-    background: #dafdf9;
-    padding: 8px;
-    border-radius: 10px;
+    margin: 10px;
+    color: #0e4434;
+    background: #ffed68;
+    padding: 10px;
+    border-radius: 5px;
     font-size: 14px;
 }
 </style>

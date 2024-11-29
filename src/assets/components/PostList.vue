@@ -34,8 +34,8 @@ export default {
 }
 
 .pltitle{
-    margin-top: 300px;
-    text-align: center;
+    margin-top: 20px;
+    /* text-align: center; */
 }
 
 </style>

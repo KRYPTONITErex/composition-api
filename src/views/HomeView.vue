@@ -3,17 +3,30 @@
 
     <div>{{ error }}</div>
 
-    <div v-if="myposts.length>0">
-      <PostList :myposts="myposts"></PostList>
+    <div class="layout" v-if="myposts.length>0">
+
+      <div>
+        <PostList :myposts="myposts"></PostList>
+      </div>
+      <div>
+        <TagClound :myposts="myposts"></TagClound>
+      </div>
+
     </div>
+
     <div v-else>
       <Spinner></Spinner>
+    </div>
+
+    <div>
+      <App class="js"></App>
     </div>
 
   </div>
 </template>
 
 <script>
+import TagClound from '../assets/components/TagClound'
 import Spinner from '../assets/components/Spinner'
 import PostList from '../assets/components/PostList'
 import getPosts from '../composables/getPosts';
@@ -22,6 +35,7 @@ import getPosts from '../composables/getPosts';
 
 export default {
   components: {
+    TagClound,
     Spinner, PostList },
 
   setup(){
@@ -50,5 +64,10 @@ export default {
   max-width: 1200px;
   margin: 0 auto;
   padding: 10px;
+}
+.layout{
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  gap: 20px;
 }
 </style>
