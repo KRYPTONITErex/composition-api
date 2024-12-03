@@ -5,6 +5,8 @@
   <div class="post" v-if="mypost">
     <h2 class="lt">{{ mypost.title }}</h2>
     <p>{{ mypost.body }}</p>
+
+    <button @click="deletepost" class="deletebutton">DELETE</button>
   </div>
   <div v-else><Spinner></Spinner></div>
 
@@ -14,17 +16,28 @@
 import Spinner from '../assets/components/Spinner'
 import getPost from '../composables/getPost';
 import { useRoute } from 'vue-router';
+import { useRouter } from 'vue-router';
+import { db } from '../firebase/config';
 
 export default {
   components: { Spinner },
     props: ["id"],
-    setup(){
+    setup(props){
       let route = useRoute();
+      let router = useRouter();
       // console.log(route.params.id)
       
       let {mypost,error,load} = getPost(route.params.id);
       load();
-      return{mypost, error}
+      let deletepost = async ()=>{
+        // alert ("clicked")
+        let id = props.id;
+        await db.collection("myposts").doc(id).delete();
+
+        router.push("/");
+
+      }
+      return{mypost, error,deletepost}
     }
 
 }
@@ -84,6 +97,39 @@ export default {
 
 .pt{
     padding-left: 15px;
+}
+
+.deletebutton {
+  width: auto;
+  margin: 30px;
+  background-color: #ff824d; /* Vibrant red */
+  color: white; /* White text for contrast */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Comfortable padding */
+  font-size: 16px; /* Readable font size */
+  font-weight: bold; /* Make text bold */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+}
+
+.button-container {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.deletebutton:hover {
+  background-color: #e62300; /* Darker red on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.deletebutton:active {
+  color: rgb(0, 0, 0);
+  background-color: #ffd000; /* Even darker red on click */
+  transform: scale(0.95); /* Slightly shrink on click */
 }
 
 
