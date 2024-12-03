@@ -1,6 +1,8 @@
 
 const { ref } = require("vue");
 
+import {db} from "../firebase/config"
+
 let getPost=(id)=>{
 
     let mypost = ref(null)
@@ -13,12 +15,21 @@ let getPost=(id)=>{
             //     setTimeout(resolve,3000)
             // })
             
-            let response = await fetch ("http://localhost:3000/myposts/"+ id );
-            if(response.status===404){
-                throw new Error ("NOT FOUND UR ONE ...")
-            }
-            let datas = await response.json()
-            mypost.value=datas
+            // let response = await fetch ("http://localhost:3000/myposts/"+ id );
+            // if(response.status===404){
+            //     throw new Error ("NOT FOUND UR ONE ...")
+            // }
+            // let datas = await response.json()
+            // mypost.value=datas
+
+            // console.log(id)
+
+            let doc = await db.collection("myposts").doc(id).get()
+            mypost.value = {id:doc.id,...doc.data()}
+            // console.log(doc.id)
+
+
+
         }
         catch(err){
             error.value=err.message;

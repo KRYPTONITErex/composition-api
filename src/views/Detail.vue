@@ -35,7 +35,7 @@ export default {
 .lt{
   text-decoration: none;
   color: black;
-  background-color: rgb(246, 242, 124);
+  background-color: rgb(255, 247, 0);
   border-radius: 5px;
 }
 
@@ -46,24 +46,25 @@ export default {
   justify-content: center; /* Center vertically */
   text-align: center; /* Center text alignment */
   min-height: auto; /* Fill the viewport vertically for centering */
-  color: rgb(2, 34, 31);
+  color: rgb(4, 79, 72);
   padding: 20px;
 }
 
 
 .post h2{
+  padding: 10px;
   font-family: stencil;
   margin-top: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-    font-size: 26px;
-    /* color: rgb(206, 255, 255); */
-    margin: 30px;
-    max-width: 200px;
-    border: solid 2px rgb(180, 174, 174);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  font-size: 26px;
+  /* color: rgb(206, 255, 255); */
+  margin: 30px;
+  max-width: 300px;
+  border: solid 2px rgb(255, 253, 253);
 }
 
 .post h2::before{
@@ -72,7 +73,7 @@ export default {
     display: block;
     width: 115%;
     height: 120%;
-    background: #dced2b;
+    background: #ff3300;
     position: absolute;
     z-index: -1;
     padding-right: 30px;
