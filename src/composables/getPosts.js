@@ -24,7 +24,7 @@ let getPosts=()=>{
         // let datas = await response.json()
         //   myposts.value=datas
 
-        let res = await db.collection("myposts").get()
+        let res = await db.collection("myposts").orderBy("title","asc").get()
             myposts.value=res.docs.map((doc)=>{
               return {id:doc.id, ...doc.data()}
               // console.log(...doc.data())
